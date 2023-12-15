@@ -18,4 +18,4 @@ RUN chmod +x run.sh
 EXPOSE 8000
 
 # Set the script as the final command to run when the container starts
-CMD ["./run.sh"]
+CMD ["./run.sh", "python", "-m", "http.server", "8000"]
