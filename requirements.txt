@@ -6,6 +6,6 @@ python-dotenv
 djangorestframework
 psycopg2-binary
 graphene-django
-import-export
+django-import-export
 django-cors-headers
 
