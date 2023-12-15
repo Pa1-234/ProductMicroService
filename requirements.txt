@@ -2,3 +2,5 @@ django
 djongo
 djangorestframework
 graphene-django
+python-dotenv
+
