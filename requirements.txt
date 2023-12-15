@@ -3,4 +3,12 @@ djongo
 djangorestframework
 graphene-django
 python-dotenv
-
+djangorestframework
+Django psycopg2
+graphene-django
+django-import-export
+django-cors-headers
+manage.py migrate
+manage.py createsuperuser
+manage.py makemigrations
+manage.py runserver
