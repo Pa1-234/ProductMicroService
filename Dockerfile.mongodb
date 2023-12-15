@@ -1,4 +1,4 @@
-# Use the official MongoDB image from the Docker Hub
+# Use the official MongoDB image
 FROM mongo
 
 # Set environment variables
@@ -6,14 +6,5 @@ ENV MONGO_INITDB_ROOT_USERNAME=root
 ENV MONGO_INITDB_ROOT_PASSWORD=mongoadmin
 ENV MONGO_INITDB_DATABASE=product_app
 
-# Expose MongoDB port
+# Expose the default MongoDB port
 EXPOSE 27017
-
-# Copy initialization scripts to the docker-entrypoint-initdb.d directory
-COPY ./init-db /docker-entrypoint-initdb.d
-
-# Create a directory for MongoDB data
-VOLUME /data/db
-
-# Set the entry point
-CMD ["mongod"]
