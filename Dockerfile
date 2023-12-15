@@ -1,21 +1,21 @@
-FROM python:3
+# Use the official Python image as the base image
+FROM python:3.8
 
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-RUN mkdir /main
-WORKDIR /main
-COPY . /main/
-RUN pip install -r requirements.txt
 
-# Create a script to display a message and run the application
-RUN echo '#!/bin/sh\n\
-echo "Application is running!"\n\
-exec "$@"' > run.sh
+# Set the working directory to /app
+WORKDIR /app
 
-# Make the script executable
-RUN chmod +x run.sh
+# Copy the project files to the container
+COPY . /app/
 
-# Expose port 8000
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose port 8000 (or the port your Django app uses)
 EXPOSE 8000
 
-# Set the script as the final command to run when the container starts
-CMD ["./run.sh", "python", "-m", "http.server", "8000"]
+# Command to run the Django app
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
